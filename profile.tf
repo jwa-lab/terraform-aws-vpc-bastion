@@ -2,6 +2,8 @@ resource "aws_iam_role" "bastion_role" {
   name = var.bastion_name
   description = "Role for ${var.bastion_name}"
 
+  permissions_boundary = var.profile_permissions_boundary_arn
+
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
