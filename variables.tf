@@ -17,6 +17,12 @@ variable "db_address" {
   description = "Address of the database that should be accessible from the bastion via HAProxy"
 }
 
+variable "db_port" {
+  type = number
+  default = null
+  description = "Port on which the proxy will listen"
+}
+
 variable "profile_permissions_boundary_arn" {
   type = string
   default = null

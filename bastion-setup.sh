@@ -9,11 +9,11 @@ export HOME=/root
 yum install -y haproxy
 
 echo "
-listen pgsql
-        bind 0.0.0.0:5432
+listen database
+        bind 0.0.0.0:${db_port}
         timeout connect 10s
         mode tcp
-        server pgsql ${db_address}
+        server database ${db_address}
 " >> /etc/haproxy/haproxy.cfg
 
 service haproxy restart

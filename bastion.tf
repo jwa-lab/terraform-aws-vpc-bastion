@@ -19,6 +19,7 @@ resource "aws_instance" "bastion" {
 
   user_data = var.db_address == null ? null : templatefile("${path.module}/bastion-setup.sh", {
     db_address = var.db_address,
+    db_port = var.db_port,
   })
   user_data_replace_on_change = true
 
